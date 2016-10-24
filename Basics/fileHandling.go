@@ -1,33 +1,32 @@
 package main
 
 import (
-	   "fmt"
-	   "os"
-	   "io/ioutil"
-	   "log"
-       )
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
+)
 
-func main(){
+func main() {
 
-    // Create a file and write down some text
-    file, err := os.Create("Sample.txt")
+	// Create a file and write down some text
+	file, err := os.Create("Sample.txt")
 
-    if err != nil{
-        log.Fatal(err)
-    }
-     
-    file.WriteString("This is a sample text.")
-   
-    file.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	file.WriteString("This is a sample text.")
 
-    // Open file for reading
-    stream, err := ioutil.ReadFile("Sample.txt")
+	file.Close()
 
-    if err != nil{
-	log.Fatal(err)
-    }
-    
-    readLine := string(stream)
-    fmt.Println(readLine)
+	// Open file for reading
+	stream, err := ioutil.ReadFile("Sample.txt")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	readLine := string(stream)
+	fmt.Println(readLine)
 }
